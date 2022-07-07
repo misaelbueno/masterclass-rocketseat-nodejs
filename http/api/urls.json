@@ -1,0 +1,16 @@
+{
+  "urls": [
+    {
+      "name": "Rocketseat",
+      "url": "http://rocketseat.com.br"
+    },
+    {
+      "name": "Trybe",
+      "url": "http://trybe.com.br"
+    },
+    {
+      "name": "Google",
+      "url": "http://google.com.br"
+    }
+  ]
+}
