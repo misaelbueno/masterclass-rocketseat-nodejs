@@ -10,7 +10,11 @@
     },
     {
       "name": "Google",
-      "url": "http://google.com.br"
+      "url": "http://google.com"
+    },
+    {
+      "name": "YouTube",
+      "url": "http://youtube.com"
     }
   ]
 }

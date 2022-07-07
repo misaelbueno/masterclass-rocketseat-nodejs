@@ -22,24 +22,23 @@ function addElement({ name, url }) {
     a.target = "_blank"
 
     trash.innerHTML = "x"
-    trash.onclick = () => removeElement(trash)
+    trash.onclick = () => removeElement(trash, name, url)
 
     li.append(a)
     li.append(trash)
     ul.append(li)
 }
 
-function removeElement(el) {
+async function removeElement(el, name, url) {
     if (confirm('Tem certeza que deseja deletar?'))
         el.parentNode.remove()
+        await fetch(`http://localhost:3000/?name=${name}&url=${url}&del=1`)
 }
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     let { value } = input
-
-    console.log('Linha 42', value);
 
     if (!value) 
         return alert('Preencha o campo')
@@ -49,13 +48,12 @@ form.addEventListener("submit", (event) => {
     if (!url) 
         return alert('formate o texto da maneira correta')
 
-    console.log('PASSSOU??');
-    console.log('LIIINHA 52', /^http/.test(url));
-
     if (!/^http/.test(url)) 
         return alert("Digite a url da maneira correta")
 
     addElement({ name, url })
+    await fetch(`http://localhost:3000/?name=${name}&url=${url}`)
+    
 
     input.value = ""
 })
